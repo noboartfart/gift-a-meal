@@ -5198,15 +5198,15 @@
         <div class="rv-summary-card">
           <div class="rv-sum-row">
             <div>
-              <div class="rv-sum-label">Gift Meal value</div>
-              <div class="rv-sum-sublabel">Amount will be adjusted in your final bill</div>
+              <div class="rv-sum-label">Suggested cover amount</div>
+              <div class="rv-sum-sublabel">Recommended based on venue and guests</div>
             </div>
             <div class="rv-sum-amount" id="rv-sum-amount">₹1,500</div>
           </div>
           <div class="rv-divider" id="rv-cover-divider" style="display:none; margin: 0 16px; width: auto;"></div>
           <div class="rv-sum-row" id="rv-cover-row" style="display:none;">
             <div>
-              <div class="rv-sum-label">Cover charge</div>
+              <div class="rv-sum-label">Modified cover charge</div>
               <div class="rv-sum-sublabel" id="rv-cover-sublabel">₹0 × 0 guests</div>
             </div>
             <div class="rv-sum-amount" id="rv-cover-amount">₹0</div>
@@ -6277,7 +6277,7 @@
       coverDiv.style.display = 'none';
     }
 
-    const toPay = giftValue + coverTotal;
+    const toPay = coverTotal;
     if (sumTotal) sumTotal.textContent = '₹' + toPay.toLocaleString('en-IN');
     const payBtn = document.getElementById('rv-pay-amount');
     if (payBtn) payBtn.textContent = '₹' + toPay.toLocaleString('en-IN');
