@@ -3277,6 +3277,114 @@
     .rv-pay-btn-amount { position: absolute; left: 10px; bottom: 9px; font-size: 15px; font-weight: 700; color: #131316; letter-spacing: -0.3px; line-height: 20px; }
     .rv-pay-btn-cta { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 2px; }
     .rv-pay-btn-cta-text { font-size: 16px; font-weight: 700; color: #131316; letter-spacing: -0.4px; }
+
+    /* ── ABOUT YOUR GIFT ── */
+    .ag-section { display: flex; flex-direction: column; gap: 10px; }
+    .ag-card { background: var(--bg-card); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .ag-card-header { display: flex; align-items: center; gap: 8px; }
+    .ag-card-icon { font-size: 18px; line-height: 1; }
+    .ag-card-title { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.2px; }
+    .ag-subtext { font-size: 13px; color: var(--text-dim); line-height: 18px; }
+
+    .ag-slider-group { display: flex; flex-direction: column; gap: 10px; }
+    .ag-slider-label { font-size: 11px; font-weight: 600; color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 0.6px; }
+    .ag-slider-track { position: relative; height: 28px; display: flex; align-items: center; }
+    .ag-slider-rail { position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; background: var(--border); }
+    .ag-slider-fill { position: absolute; left: 0; height: 4px; border-radius: 2px; background: var(--blue); pointer-events: none; }
+    .ag-slider {
+      position: absolute; left: 0; right: 0; width: 100%;
+      height: 4px; border-radius: 2px; background: transparent;
+      outline: none; -webkit-appearance: none; appearance: none; cursor: pointer; margin: 0;
+    }
+    .ag-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); cursor: pointer;
+      box-shadow: 0 2px 8px oklch(48% 0.26 265 / 0.5);
+      transition: box-shadow 0.15s ease, transform 0.1s ease;
+    }
+    .ag-slider:active::-webkit-slider-thumb {
+      box-shadow: 0 0 0 6px oklch(48% 0.26 265 / 0.18); transform: scale(1.08);
+    }
+    .ag-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--blue); border: none; cursor: pointer; }
+    .ag-slider::-moz-range-track { background: transparent; }
+    .ag-slider-value-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .ag-slider-per-guest { font-size: 13px; color: var(--text-dim); }
+    .ag-slider-per-guest strong { color: var(--text); font-weight: 600; }
+    .ag-slider-total { font-size: 13px; font-weight: 700; color: var(--blue-light); }
+    .ag-slider-range-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-dimmer); }
+
+    .ag-info-cards { display: flex; flex-direction: column; gap: 8px; }
+    .ag-info-card {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: oklch(18% 0.045 258); border: 1px solid var(--border);
+      border-left: 3px solid var(--blue-dim); border-radius: 10px; padding: 10px 12px;
+    }
+    .ag-info-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .ag-info-body { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .ag-info-title { font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.1px; line-height: 16px; }
+    .ag-info-text  { font-size: 11px; color: var(--text-dimmer); line-height: 15px; }
+    .ag-share-btn {
+      margin-top: 5px; background: none; border: none;
+      color: var(--blue-light); font-size: 11px; font-weight: 600;
+      padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+    }
+
+    /* Share modal */
+    .ag-modal-overlay {
+      position: absolute; inset: 0; background: oklch(6% 0.03 258 / 0.7);
+      display: flex; align-items: flex-end; z-index: 200;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+    }
+    .ag-modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .ag-modal {
+      background: oklch(17% 0.052 258); border-radius: 20px 20px 0 0;
+      padding: 20px 16px 28px; width: 100%;
+      display: flex; flex-direction: column; gap: 16px;
+      transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ag-modal-overlay.open .ag-modal { transform: translateY(0); }
+    .ag-modal-handle { width: 36px; height: 4px; background: var(--border-light); border-radius: 2px; margin: 0 auto 4px; }
+    .ag-modal-header { display: flex; justify-content: space-between; align-items: center; }
+    .ag-modal-title { font-size: 15px; font-weight: 600; color: var(--text); }
+    .ag-modal-close {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--bg-card-2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-size: 18px; line-height: 1; border: none; cursor: pointer;
+    }
+    .ag-sms-preview {
+      background: oklch(60% 0.24 265 / 0.08); border: 1px solid oklch(60% 0.24 265 / 0.22);
+      border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .ag-sms-label { font-size: 10px; font-weight: 600; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.5px; }
+    .ag-sms-body  { font-size: 13px; color: var(--text-dim); line-height: 18px; }
+    .ag-modal-actions { display: flex; flex-direction: column; gap: 8px; }
+    .ag-modal-btn {
+      width: 100%; padding: 12px; border-radius: 12px;
+      font-size: 14px; font-weight: 600; border: none; cursor: pointer;
+      transition: opacity 0.15s ease; font-family: inherit;
+    }
+    .ag-modal-btn:active { opacity: 0.8; }
+    .ag-modal-btn-primary { background: var(--blue); color: #fff; }
+    .ag-modal-btn-secondary { background: var(--bg-card-2); color: var(--text); }
+    .ag-toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding-top: 4px; border-top: 1px solid var(--border);
+    }
+    .ag-toggle-label { font-size: 12px; color: var(--text-dim); line-height: 16px; }
+    .ag-toggle {
+      width: 40px; height: 22px; border-radius: 11px; background: var(--bg-card-2);
+      border: 1.5px solid var(--border); position: relative; cursor: pointer; flex-shrink: 0;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .ag-toggle.on { background: var(--blue); border-color: var(--blue); }
+    .ag-toggle-dot {
+      position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--text-dimmer);
+      transition: left 0.2s ease, background 0.2s ease;
+    }
+    .ag-toggle.on .ag-toggle-dot { left: 20px; background: #fff; }
+
   </style>
 </head>
 <body>
@@ -5004,6 +5112,57 @@
         </div>
       </div>
 
+
+      <!-- About your gift -->
+      <div class="ag-section">
+        <div class="ag-card">
+          <div class="ag-card-header">
+            <div class="ag-card-icon">🎁</div>
+            <div class="ag-card-title">About your gift</div>
+          </div>
+          <div class="ag-subtext">Cover the table charge—they'll have nothing to worry about.</div>
+
+          <div class="ag-slider-group">
+            <div class="ag-slider-label">Cover charge per guest</div>
+            <div class="ag-slider-track">
+              <div class="ag-slider-rail"></div>
+              <div class="ag-slider-fill" id="ag-fill"></div>
+              <input type="range" class="ag-slider" id="ag-slider" min="0" max="500" step="10" value="0">
+            </div>
+            <div class="ag-slider-value-row">
+              <div class="ag-slider-per-guest" id="ag-per-guest"><strong>₹0</strong> per guest · 0 guests</div>
+              <div class="ag-slider-total" id="ag-total">= ₹0</div>
+            </div>
+            <div class="ag-slider-range-labels"><span>₹0</span><span>₹500</span></div>
+          </div>
+
+          <div class="ag-info-cards">
+            <div class="ag-info-card">
+              <div class="ag-info-icon">🔄</div>
+              <div class="ag-info-body">
+                <div class="ag-info-title">Easy refunds &amp; modifications</div>
+                <div class="ag-info-text">You can modify or cancel anytime before the booking date.</div>
+              </div>
+            </div>
+            <div class="ag-info-card">
+              <div class="ag-info-icon">⚠️</div>
+              <div class="ag-info-body">
+                <div class="ag-info-title">What if amounts differ?</div>
+                <div class="ag-info-text">If the final bill exceeds your cover charge, your guest pays the difference. If it's less, you get refunded the extra.</div>
+              </div>
+            </div>
+            <div class="ag-info-card">
+              <div class="ag-info-icon">📱</div>
+              <div class="ag-info-body">
+                <div class="ag-info-title">Share with your guest</div>
+                <div class="ag-info-text">They'll receive the redemption code and booking details via SMS immediately after you confirm.</div>
+                <button class="ag-share-btn" id="ag-share-open">Share details →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Seating + Special requests -->
       <div class="rv-card-alt">
         <div class="rv-req-row">
@@ -5042,12 +5201,20 @@
               <div class="rv-sum-label">Gift Meal value</div>
               <div class="rv-sum-sublabel">Amount will be adjusted in your final bill</div>
             </div>
-            <div class="rv-sum-amount" id="rv-sum-amount">₹1500</div>
+            <div class="rv-sum-amount" id="rv-sum-amount">₹1,500</div>
+          </div>
+          <div class="rv-divider" id="rv-cover-divider" style="display:none; margin: 0 16px; width: auto;"></div>
+          <div class="rv-sum-row" id="rv-cover-row" style="display:none;">
+            <div>
+              <div class="rv-sum-label">Cover charge</div>
+              <div class="rv-sum-sublabel" id="rv-cover-sublabel">₹0 × 0 guests</div>
+            </div>
+            <div class="rv-sum-amount" id="rv-cover-amount">₹0</div>
           </div>
           <div class="rv-divider" style="margin: 0 16px; width: auto;"></div>
           <div class="rv-sum-total-row">
             <div class="rv-sum-total-label">To be paid</div>
-            <div class="rv-sum-total-amount" id="rv-sum-total">₹1500</div>
+            <div class="rv-sum-total-amount" id="rv-sum-total">₹1,500</div>
           </div>
         </div>
       </div>
@@ -5122,6 +5289,30 @@
       <div class="rv-pay-btn-cta">
         <span class="rv-pay-btn-cta-text">Pay now</span>
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="#131316" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="ag-modal-overlay" id="ag-modal-overlay">
+    <div class="ag-modal">
+      <div class="ag-modal-handle"></div>
+      <div class="ag-modal-header">
+        <div class="ag-modal-title">Share with your guest</div>
+        <button class="ag-modal-close" id="ag-modal-close">&#xD7;</button>
+      </div>
+      <div class="ag-sms-preview">
+        <div class="ag-sms-label">SMS Preview</div>
+        <div class="ag-sms-body" id="ag-sms-body">Hi Rohan, Nabanita has gifted you a meal at Kogai. Your redemption code: GIFT-X8B2. No payment needed—just confirm the final bill on arrival. 🎁</div>
+      </div>
+      <div class="ag-modal-actions">
+        <button class="ag-modal-btn ag-modal-btn-primary" id="ag-copy-btn">Copy to clipboard</button>
+        <button class="ag-modal-btn ag-modal-btn-secondary" id="ag-wa-btn">Share via WhatsApp</button>
+        <button class="ag-modal-btn ag-modal-btn-secondary" id="ag-email-btn">Share via Email</button>
+      </div>
+      <div class="ag-toggle-row">
+        <div class="ag-toggle-label">Share after booking is confirmed</div>
+        <div class="ag-toggle" id="ag-toggle"><div class="ag-toggle-dot"></div></div>
       </div>
     </div>
   </div>
@@ -6047,6 +6238,107 @@
     document.getElementById('txt-guests').textContent = guestCount === 1 ? '1 guest' : guestCount + ' guests';
     closePicker();
   }
+
+
+  /* ── COVER CHARGE SLIDER ── */
+  let agCoverPerGuest = 0;
+
+  function agUpdateSlider() {
+    const slider   = document.getElementById('ag-slider');
+    const fill     = document.getElementById('ag-fill');
+    const perGuest = document.getElementById('ag-per-guest');
+    const total    = document.getElementById('ag-total');
+    const coverRow = document.getElementById('rv-cover-row');
+    const coverDiv = document.getElementById('rv-cover-divider');
+    const coverAmt = document.getElementById('rv-cover-amount');
+    const coverSub = document.getElementById('rv-cover-sublabel');
+    const sumTotal = document.getElementById('rv-sum-total');
+
+    if (!slider) return;
+
+    agCoverPerGuest = parseInt(slider.value);
+    const pct   = (agCoverPerGuest / 500) * 100;
+    if (fill) fill.style.width = pct + '%';
+
+    const guests = typeof guestCount !== 'undefined' ? guestCount : 2;
+    const coverTotal = agCoverPerGuest * guests;
+    const giftValue  = 1500;
+
+    perGuest.innerHTML = '<strong>₹' + agCoverPerGuest + '</strong> per guest · ' + guests + ' guest' + (guests !== 1 ? 's' : '');
+    total.textContent  = '= ₹' + coverTotal;
+
+    if (coverTotal > 0) {
+      coverRow.style.display = 'flex';
+      coverDiv.style.display = 'block';
+      coverAmt.textContent   = '₹' + coverTotal.toLocaleString('en-IN');
+      coverSub.textContent   = '₹' + agCoverPerGuest + ' × ' + guests + ' guest' + (guests !== 1 ? 's' : '');
+    } else {
+      coverRow.style.display = 'none';
+      coverDiv.style.display = 'none';
+    }
+
+    const toPay = giftValue + coverTotal;
+    if (sumTotal) sumTotal.textContent = '₹' + toPay.toLocaleString('en-IN');
+    const payBtn = document.getElementById('rv-pay-amount');
+    if (payBtn) payBtn.textContent = '₹' + toPay.toLocaleString('en-IN');
+  }
+
+  function agInitSlider() {
+    const slider = document.getElementById('ag-slider');
+    if (slider) {
+      slider.addEventListener('input', agUpdateSlider);
+      agUpdateSlider();
+    }
+  }
+
+  /* ── SHARE MODAL ── */
+  function agOpenModal()  { document.getElementById('ag-modal-overlay').classList.add('open'); }
+  function agCloseModal() { document.getElementById('ag-modal-overlay').classList.remove('open'); }
+
+  function agInitShareModal() {
+    const openBtn  = document.getElementById('ag-share-open');
+    const closeBtn = document.getElementById('ag-modal-close');
+    const overlay  = document.getElementById('ag-modal-overlay');
+    const copyBtn  = document.getElementById('ag-copy-btn');
+    const waBtn    = document.getElementById('ag-wa-btn');
+    const emailBtn = document.getElementById('ag-email-btn');
+    const toggle   = document.getElementById('ag-toggle');
+
+    if (openBtn)  openBtn.addEventListener('click', agOpenModal);
+    if (closeBtn) closeBtn.addEventListener('click', agCloseModal);
+    if (overlay)  overlay.addEventListener('click', function(e) { if (e.target === overlay) agCloseModal(); });
+
+    if (copyBtn) copyBtn.addEventListener('click', function() {
+      const txt = document.getElementById('ag-sms-body').innerText;
+      navigator.clipboard.writeText(txt).catch(() => {});
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = orig; }, 2000);
+    });
+
+    if (waBtn) waBtn.addEventListener('click', function() {
+      const txt = encodeURIComponent(document.getElementById('ag-sms-body').innerText);
+      window.open('https://wa.me/?text=' + txt, '_blank');
+    });
+
+    if (emailBtn) emailBtn.addEventListener('click', function() {
+      const body = encodeURIComponent(document.getElementById('ag-sms-body').innerText);
+      window.open('mailto:?subject=' + encodeURIComponent('Your gift meal 🎁') + '&body=' + body, '_blank');
+    });
+
+    if (toggle) toggle.addEventListener('click', function() {
+      this.classList.toggle('on');
+    });
+  }
+
+  /* ── INIT ── */
+  (function() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { agInitSlider(); agInitShareModal(); });
+    } else {
+      agInitSlider(); agInitShareModal();
+    }
+  })();
 
 </script>
 </body>
