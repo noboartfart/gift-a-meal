@@ -3279,55 +3279,73 @@
     .rv-pay-btn-cta-text { font-size: 16px; font-weight: 700; color: #131316; letter-spacing: -0.4px; }
 
     /* ── ABOUT YOUR GIFT ── */
-    .ag-section { display: flex; flex-direction: column; gap: 10px; }
-    .ag-card { background: var(--bg-card); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
-    .ag-card-header { display: flex; align-items: center; gap: 8px; }
-    .ag-card-icon { font-size: 18px; line-height: 1; }
-    .ag-card-title { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.2px; }
-    .ag-subtext { font-size: 13px; color: var(--text-dim); line-height: 18px; }
+    .ag-section { display: flex; flex-direction: column; gap: 0; }
+    .ag-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+    }
 
-    .ag-slider-group { display: flex; flex-direction: column; gap: 10px; }
-    .ag-slider-label { font-size: 11px; font-weight: 600; color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 0.6px; }
+    /* Header */
+    .ag-card-header { display: flex; align-items: center; gap: 8px; padding: 16px 16px 0; }
+    .ag-card-icon { font-size: 16px; line-height: 1; }
+    .ag-card-title { font-size: 13px; font-weight: 600; color: var(--text-dimmer); letter-spacing: 0.3px; text-transform: uppercase; }
+
+    /* Amount hero */
+    .ag-amount-block { padding: 10px 16px 16px; }
+    .ag-amount {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-size: 32px; font-weight: 700; color: var(--text);
+      letter-spacing: -1px; line-height: 1.1;
+      transition: color 0.2s ease;
+    }
+    .ag-amount-label { font-size: 12px; color: var(--text-dimmer); margin-top: 2px; line-height: 16px; }
+
+    /* Slider */
+    .ag-slider-wrap { padding: 0 16px 16px; }
     .ag-slider-track { position: relative; height: 28px; display: flex; align-items: center; }
-    .ag-slider-rail { position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; background: var(--border); }
-    .ag-slider-fill { position: absolute; left: 0; height: 4px; border-radius: 2px; background: var(--blue); pointer-events: none; }
+    .ag-slider-rail { position: absolute; left: 0; right: 0; height: 3px; border-radius: 2px; background: var(--border); }
+    .ag-slider-fill { position: absolute; left: 0; height: 3px; border-radius: 2px; background: var(--blue); pointer-events: none; }
     .ag-slider {
       position: absolute; left: 0; right: 0; width: 100%;
-      height: 4px; border-radius: 2px; background: transparent;
+      height: 3px; border-radius: 2px; background: transparent;
       outline: none; -webkit-appearance: none; appearance: none; cursor: pointer; margin: 0;
     }
     .ag-slider::-webkit-slider-thumb {
       -webkit-appearance: none; appearance: none;
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--blue); cursor: pointer;
-      box-shadow: 0 2px 8px oklch(48% 0.26 265 / 0.5);
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 4px oklch(4% 0.03 258 / 0.5), 0 0 0 3px var(--blue);
+      cursor: pointer;
       transition: box-shadow 0.15s ease, transform 0.1s ease;
     }
     .ag-slider:active::-webkit-slider-thumb {
-      box-shadow: 0 0 0 6px oklch(48% 0.26 265 / 0.18); transform: scale(1.08);
+      box-shadow: 0 1px 4px oklch(4% 0.03 258 / 0.5), 0 0 0 5px var(--blue);
+      transform: scale(1.05);
     }
-    .ag-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--blue); border: none; cursor: pointer; }
+    .ag-slider::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #fff; border: 3px solid var(--blue); cursor: pointer;
+    }
     .ag-slider::-moz-range-track { background: transparent; }
-    .ag-slider-value-row { display: flex; justify-content: space-between; align-items: baseline; }
-    .ag-slider-per-guest { font-size: 13px; color: var(--text-dim); }
-    .ag-slider-per-guest strong { color: var(--text); font-weight: 600; }
-    .ag-slider-total { font-size: 13px; font-weight: 700; color: var(--blue-light); }
-    .ag-slider-range-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-dimmer); }
+    .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10px; color: var(--text-dimmer); }
 
-    .ag-info-cards { display: flex; flex-direction: column; gap: 8px; }
-    .ag-info-card {
-      display: flex; gap: 10px; align-items: flex-start;
-      background: oklch(18% 0.045 258); border: 1px solid var(--border);
-      border-left: 3px solid var(--blue-dim); border-radius: 10px; padding: 10px 12px;
+    /* Info list */
+    .ag-info-list { display: flex; flex-direction: column; }
+    .ag-info-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 13px 16px;
+      border-top: 1px solid var(--border);
     }
-    .ag-info-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-    .ag-info-body { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .ag-info-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; opacity: 0.85; }
+    .ag-info-body { display: flex; flex-direction: column; gap: 2px; flex: 1; }
     .ag-info-title { font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.1px; line-height: 16px; }
     .ag-info-text  { font-size: 11px; color: var(--text-dimmer); line-height: 15px; }
     .ag-share-btn {
-      margin-top: 5px; background: none; border: none;
+      margin-top: 4px; background: none; border: none;
       color: var(--blue-light); font-size: 11px; font-weight: 600;
-      padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 3px;
+      letter-spacing: -0.1px;
     }
 
     /* Share modal */
@@ -5118,44 +5136,43 @@
         <div class="ag-card">
           <div class="ag-card-header">
             <div class="ag-card-icon">🎁</div>
-            <div class="ag-card-title">About your gift</div>
+            <div class="ag-card-title">Cover charge</div>
           </div>
-          <div class="ag-subtext">Cover the table charge—they'll have nothing to worry about.</div>
 
-          <div class="ag-slider-group">
-            <div class="ag-slider-label">Cover charge per guest</div>
+          <div class="ag-amount-block">
+            <div class="ag-amount" id="ag-amount">₹1,500</div>
+            <div class="ag-amount-label" id="ag-per-guest">₹750 per guest · 2 guests</div>
+          </div>
+
+          <div class="ag-slider-wrap">
             <div class="ag-slider-track">
               <div class="ag-slider-rail"></div>
-              <div class="ag-slider-fill" id="ag-fill"></div>
-              <input type="range" class="ag-slider" id="ag-slider" min="0" max="500" step="10" value="0">
+              <div class="ag-slider-fill" id="ag-fill" style="width:50%"></div>
+              <input type="range" class="ag-slider" id="ag-slider" min="0" max="3000" step="50" value="1500">
             </div>
-            <div class="ag-slider-value-row">
-              <div class="ag-slider-per-guest" id="ag-per-guest"><strong>₹0</strong> per guest · 0 guests</div>
-              <div class="ag-slider-total" id="ag-total">= ₹0</div>
-            </div>
-            <div class="ag-slider-range-labels"><span>₹0</span><span>₹500</span></div>
+            <div class="ag-slider-ends"><span>₹0</span><span>₹3,000</span></div>
           </div>
 
-          <div class="ag-info-cards">
-            <div class="ag-info-card">
+          <div class="ag-info-list">
+            <div class="ag-info-item">
               <div class="ag-info-icon">🔄</div>
               <div class="ag-info-body">
                 <div class="ag-info-title">Easy refunds &amp; modifications</div>
-                <div class="ag-info-text">You can modify or cancel anytime before the booking date.</div>
+                <div class="ag-info-text">Modify or cancel anytime before the booking date.</div>
               </div>
             </div>
-            <div class="ag-info-card">
-              <div class="ag-info-icon">⚠️</div>
+            <div class="ag-info-item">
+              <div class="ag-info-icon">⚖️</div>
               <div class="ag-info-body">
                 <div class="ag-info-title">What if amounts differ?</div>
-                <div class="ag-info-text">If the final bill exceeds your cover charge, your guest pays the difference. If it's less, you get refunded the extra.</div>
+                <div class="ag-info-text">Guest pays any shortfall; you're refunded if it's less.</div>
               </div>
             </div>
-            <div class="ag-info-card">
-              <div class="ag-info-icon">📱</div>
+            <div class="ag-info-item">
+              <div class="ag-info-icon">📲</div>
               <div class="ag-info-body">
                 <div class="ag-info-title">Share with your guest</div>
-                <div class="ag-info-text">They'll receive the redemption code and booking details via SMS immediately after you confirm.</div>
+                <div class="ag-info-text">Redemption code sent via SMS immediately after you confirm.</div>
                 <button class="ag-share-btn" id="ag-share-open">Share details →</button>
               </div>
             </div>
@@ -6247,7 +6264,6 @@
     const slider   = document.getElementById('ag-slider');
     const fill     = document.getElementById('ag-fill');
     const perGuest = document.getElementById('ag-per-guest');
-    const total    = document.getElementById('ag-total');
     const coverRow = document.getElementById('rv-cover-row');
     const coverDiv = document.getElementById('rv-cover-divider');
     const coverAmt = document.getElementById('rv-cover-amount');
@@ -6257,15 +6273,15 @@
     if (!slider) return;
 
     agCoverPerGuest = parseInt(slider.value);
-    const pct   = (agCoverPerGuest / 500) * 100;
+    const pct   = (agCoverPerGuest / 3000) * 100;
     if (fill) fill.style.width = pct + '%';
 
     const guests = typeof guestCount !== 'undefined' ? guestCount : 2;
     const coverTotal = agCoverPerGuest * guests;
-    const giftValue  = 1500;
 
-    perGuest.innerHTML = '<strong>₹' + agCoverPerGuest + '</strong> per guest · ' + guests + ' guest' + (guests !== 1 ? 's' : '');
-    total.textContent  = '= ₹' + coverTotal;
+    const amountEl = document.getElementById('ag-amount');
+    if (amountEl) amountEl.textContent = '₹' + coverTotal.toLocaleString('en-IN');
+    perGuest.textContent = '₹' + agCoverPerGuest.toLocaleString('en-IN') + ' per guest · ' + guests + ' guest' + (guests !== 1 ? 's' : '');
 
     if (coverTotal > 0) {
       coverRow.style.display = 'flex';
@@ -6277,10 +6293,9 @@
       coverDiv.style.display = 'none';
     }
 
-    const toPay = coverTotal;
-    if (sumTotal) sumTotal.textContent = '₹' + toPay.toLocaleString('en-IN');
+    if (sumTotal) sumTotal.textContent = '₹' + coverTotal.toLocaleString('en-IN');
     const payBtn = document.getElementById('rv-pay-amount');
-    if (payBtn) payBtn.textContent = '₹' + toPay.toLocaleString('en-IN');
+    if (payBtn) payBtn.textContent = '₹' + coverTotal.toLocaleString('en-IN');
   }
 
   function agInitSlider() {
