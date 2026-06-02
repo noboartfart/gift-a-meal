@@ -3292,7 +3292,7 @@
     .ag-card-title { font-size: 16px; font-weight: 600; color: #fafafa; letter-spacing: -0.01px; }
 
     /* Amount hero */
-    .ag-amount-block { padding: 10px 16px 16px; }
+    .ag-amount-block { padding: 12px 16px 18px; }
     .ag-amount {
       font-family: 'Be Vietnam Pro', system-ui, sans-serif;
       font-size: 28px; font-weight: 700; color: #fafafa;
@@ -3302,10 +3302,10 @@
     .ag-amount-label { font-size: 11px; font-weight: 600; color: #77777e; margin-top: 3px; line-height: 14px; }
 
     /* Slider */
-    .ag-slider-wrap { padding: 0 16px 16px; }
-    .ag-slider-track { position: relative; height: 28px; display: flex; align-items: center; }
-    .ag-slider-rail { position: absolute; left: 0; right: 0; height: 3px; border-radius: 2px; background: var(--border); }
-    .ag-slider-fill { position: absolute; left: 0; height: 3px; border-radius: 2px; background: var(--blue); pointer-events: none; }
+    .ag-slider-wrap { padding: 0 16px 18px; }
+    .ag-slider-track { position: relative; height: 32px; display: flex; align-items: center; }
+    .ag-slider-rail { position: absolute; left: 0; right: 0; height: 3px; border-radius: 2px; background: oklch(28% 0.042 258); }
+    .ag-slider-fill { position: absolute; left: 0; height: 3px; border-radius: 2px; background: oklch(48% 0.14 265 / 0.7); pointer-events: none; }
     .ag-slider {
       position: absolute; left: 0; right: 0; width: 100%;
       height: 3px; border-radius: 2px; background: transparent;
@@ -3313,22 +3313,23 @@
     }
     .ag-slider::-webkit-slider-thumb {
       -webkit-appearance: none; appearance: none;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 4px oklch(4% 0.03 258 / 0.5), 0 0 0 3px var(--blue);
+      width: 18px; height: 18px; border-radius: 50%;
+      background: oklch(72% 0.16 265);
+      box-shadow: 0 1px 6px oklch(4% 0.03 258 / 0.6);
       cursor: pointer;
-      transition: box-shadow 0.15s ease, transform 0.1s ease;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
     .ag-slider:active::-webkit-slider-thumb {
-      box-shadow: 0 1px 4px oklch(4% 0.03 258 / 0.5), 0 0 0 5px var(--blue);
-      transform: scale(1.05);
+      background: oklch(78% 0.18 265);
+      transform: scale(1.08);
     }
     .ag-slider::-moz-range-thumb {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: #fff; border: 3px solid var(--blue); cursor: pointer;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: oklch(72% 0.16 265); border: none; cursor: pointer;
+      box-shadow: 0 1px 6px oklch(4% 0.03 258 / 0.6);
     }
     .ag-slider::-moz-range-track { background: transparent; }
-    .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; font-weight: 600; color: #77777e; }
+    .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 4px; font-size: 11px; font-weight: 600; color: oklch(42% 0.02 258); }
 
     /* Info list */
     /* Accordion info list */
@@ -5191,7 +5192,7 @@
               <div class="ag-slider-fill" id="ag-fill" style="width:100%"></div>
               <input type="range" class="ag-slider" id="ag-slider" min="450" max="1500" step="10" value="1500">
             </div>
-            <div class="ag-slider-ends"><span>₹450 <span style="opacity:0.55">(min)</span></span><span>₹1,500 <span style="opacity:0.55">(suggested)</span></span></div>
+            <div class="ag-slider-ends"><span>₹450</span><span>₹1,500</span></div>
           </div>
 
           <div class="ag-info-list">
