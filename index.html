@@ -3331,21 +3331,63 @@
     .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10px; color: var(--text-dimmer); }
 
     /* Info list */
+    /* Accordion info list */
     .ag-info-list { display: flex; flex-direction: column; }
-    .ag-info-item {
-      display: flex; gap: 12px; align-items: flex-start;
-      padding: 13px 16px;
+
+    .ag-accordion {
       border-top: 1px solid var(--border);
     }
-    .ag-info-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; opacity: 0.85; }
-    .ag-info-body { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-    .ag-info-title { font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.1px; line-height: 16px; }
-    .ag-info-text  { font-size: 11px; color: var(--text-dimmer); line-height: 15px; }
+
+    .ag-accordion-trigger {
+      width: 100%;
+      display: flex; align-items: center; gap: 10px;
+      padding: 13px 16px;
+      background: none; border: none; cursor: pointer;
+      text-align: left; font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.15s ease;
+    }
+    .ag-accordion-trigger:active { background: oklch(22% 0.04 258 / 0.6); }
+
+    .ag-accordion-icon { font-size: 14px; flex-shrink: 0; opacity: 0.8; }
+
+    .ag-accordion-label {
+      font-size: 12px; font-weight: 600; color: var(--text);
+      letter-spacing: -0.1px; line-height: 16px; flex: 1;
+    }
+
+    .ag-accordion-chevron {
+      flex-shrink: 0; color: var(--text-dimmer);
+      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .ag-accordion.open .ag-accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .ag-accordion-body-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .ag-accordion.open .ag-accordion-body-wrap {
+      grid-template-rows: 1fr;
+    }
+
+    .ag-accordion-body-inner {
+      overflow: hidden;
+    }
+
+    .ag-accordion-body {
+      padding: 0 16px 14px 40px;
+      font-size: 11px; color: var(--text-dimmer); line-height: 16px;
+    }
+
     .ag-share-btn {
-      margin-top: 4px; background: none; border: none;
+      display: inline-flex; align-items: center; gap: 3px;
+      margin-top: 7px; background: none; border: none;
       color: var(--blue-light); font-size: 11px; font-weight: 600;
-      padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 3px;
-      letter-spacing: -0.1px;
+      padding: 0; cursor: pointer; letter-spacing: -0.1px;
+      font-family: inherit;
     }
 
     /* Share modal */
@@ -5154,28 +5196,60 @@
           </div>
 
           <div class="ag-info-list">
-            <div class="ag-info-item">
-              <div class="ag-info-icon">🔄</div>
-              <div class="ag-info-body">
-                <div class="ag-info-title">Easy refunds &amp; modifications</div>
-                <div class="ag-info-text">Modify or cancel anytime before the booking date.</div>
+
+            <div class="ag-accordion" id="acc-refunds">
+              <button class="ag-accordion-trigger" onclick="agToggle('acc-refunds')" aria-expanded="false">
+                <span class="ag-accordion-icon">🔄</span>
+                <span class="ag-accordion-label">Easy refunds &amp; modifications</span>
+                <svg class="ag-accordion-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                  <path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="ag-accordion-body-wrap">
+                <div class="ag-accordion-body-inner">
+                  <div class="ag-accordion-body">
+                    Modify or cancel anytime before the booking date. Full refund processed within 3–5 business days.
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="ag-info-item">
-              <div class="ag-info-icon">⚖️</div>
-              <div class="ag-info-body">
-                <div class="ag-info-title">What if amounts differ?</div>
-                <div class="ag-info-text">Guest pays any shortfall; you're refunded if it's less.</div>
+
+            <div class="ag-accordion" id="acc-differ">
+              <button class="ag-accordion-trigger" onclick="agToggle('acc-differ')" aria-expanded="false">
+                <span class="ag-accordion-icon">⚖️</span>
+                <span class="ag-accordion-label">What if amounts differ?</span>
+                <svg class="ag-accordion-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                  <path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="ag-accordion-body-wrap">
+                <div class="ag-accordion-body-inner">
+                  <div class="ag-accordion-body">
+                    If the final bill is higher, your guest pays the difference directly at the venue. If it's lower, the extra is refunded to you automatically after the meal.
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="ag-info-item">
-              <div class="ag-info-icon">📲</div>
-              <div class="ag-info-body">
-                <div class="ag-info-title">Share with your guest</div>
-                <div class="ag-info-text">Redemption code sent via SMS immediately after you confirm.</div>
-                <button class="ag-share-btn" id="ag-share-open">Share details →</button>
+
+            <div class="ag-accordion" id="acc-share">
+              <button class="ag-accordion-trigger" onclick="agToggle('acc-share')" aria-expanded="false">
+                <span class="ag-accordion-icon">📲</span>
+                <span class="ag-accordion-label">Share with your guest</span>
+                <svg class="ag-accordion-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                  <path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="ag-accordion-body-wrap">
+                <div class="ag-accordion-body-inner">
+                  <div class="ag-accordion-body">
+                    Redemption code sent via SMS immediately after you confirm. You can also share it manually anytime.
+                    <br>
+                    <button class="ag-share-btn" id="ag-share-open">Share details →</button>
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -6297,6 +6371,21 @@
     if (sumTotal) sumTotal.textContent = '₹' + coverTotal.toLocaleString('en-IN');
     const payBtn = document.getElementById('rv-pay-amount');
     if (payBtn) payBtn.textContent = '₹' + coverTotal.toLocaleString('en-IN');
+  }
+
+  /* ── ACCORDION ── */
+  function agToggle(id) {
+    const allAccordions = document.querySelectorAll('.ag-accordion');
+    allAccordions.forEach(function(acc) {
+      if (acc.id === id) {
+        const isOpen = acc.classList.contains('open');
+        acc.classList.toggle('open', !isOpen);
+        acc.querySelector('.ag-accordion-trigger').setAttribute('aria-expanded', !isOpen);
+      } else {
+        acc.classList.remove('open');
+        acc.querySelector('.ag-accordion-trigger').setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   function agInitSlider() {
