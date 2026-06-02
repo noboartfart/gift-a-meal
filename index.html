@@ -5147,10 +5147,10 @@
           <div class="ag-slider-wrap">
             <div class="ag-slider-track">
               <div class="ag-slider-rail"></div>
-              <div class="ag-slider-fill" id="ag-fill" style="width:50%"></div>
-              <input type="range" class="ag-slider" id="ag-slider" min="0" max="3000" step="50" value="1500">
+              <div class="ag-slider-fill" id="ag-fill" style="width:100%"></div>
+              <input type="range" class="ag-slider" id="ag-slider" min="450" max="1500" step="10" value="1500">
             </div>
-            <div class="ag-slider-ends"><span>₹0</span><span>₹3,000</span></div>
+            <div class="ag-slider-ends"><span>₹450 <span style="opacity:0.55">(min)</span></span><span>₹1,500 <span style="opacity:0.55">(suggested)</span></span></div>
           </div>
 
           <div class="ag-info-list">
@@ -6273,7 +6273,7 @@
     if (!slider) return;
 
     agCoverPerGuest = parseInt(slider.value);
-    const pct   = (agCoverPerGuest / 3000) * 100;
+    const pct   = ((agCoverPerGuest - 450) / (1500 - 450)) * 100;
     if (fill) fill.style.width = pct + '%';
 
     const guests = typeof guestCount !== 'undefined' ? guestCount : 2;
