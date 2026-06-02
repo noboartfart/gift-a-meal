@@ -3289,17 +3289,17 @@
     /* Header */
     .ag-card-header { display: flex; align-items: center; gap: 8px; padding: 16px 16px 0; }
     .ag-card-icon { font-size: 16px; line-height: 1; }
-    .ag-card-title { font-size: 13px; font-weight: 600; color: var(--text-dimmer); letter-spacing: 0.3px; text-transform: uppercase; }
+    .ag-card-title { font-size: 16px; font-weight: 600; color: #fafafa; letter-spacing: -0.01px; }
 
     /* Amount hero */
     .ag-amount-block { padding: 10px 16px 16px; }
     .ag-amount {
-      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-      font-size: 32px; font-weight: 700; color: var(--text);
-      letter-spacing: -1px; line-height: 1.1;
+      font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+      font-size: 28px; font-weight: 700; color: #fafafa;
+      letter-spacing: -0.5px; line-height: 1.1;
       transition: color 0.2s ease;
     }
-    .ag-amount-label { font-size: 12px; color: var(--text-dimmer); margin-top: 2px; line-height: 16px; }
+    .ag-amount-label { font-size: 11px; font-weight: 600; color: #77777e; margin-top: 3px; line-height: 14px; }
 
     /* Slider */
     .ag-slider-wrap { padding: 0 16px 16px; }
@@ -3328,7 +3328,7 @@
       background: #fff; border: 3px solid var(--blue); cursor: pointer;
     }
     .ag-slider::-moz-range-track { background: transparent; }
-    .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10px; color: var(--text-dimmer); }
+    .ag-slider-ends { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; font-weight: 600; color: #77777e; }
 
     /* Info list */
     /* Accordion info list */
@@ -3352,8 +3352,8 @@
     .ag-accordion-icon { font-size: 14px; flex-shrink: 0; opacity: 0.8; }
 
     .ag-accordion-label {
-      font-size: 12px; font-weight: 600; color: var(--text);
-      letter-spacing: -0.1px; line-height: 16px; flex: 1;
+      font-size: 14px; font-weight: 600; color: #fafafa;
+      letter-spacing: -0.24px; line-height: 18px; flex: 1;
     }
 
     .ag-accordion-chevron {
@@ -3379,7 +3379,7 @@
 
     .ag-accordion-body {
       padding: 0 16px 14px 40px;
-      font-size: 11px; color: var(--text-dimmer); line-height: 16px;
+      font-size: 11px; font-weight: 600; color: #77777e; line-height: 16px;
     }
 
     .ag-share-btn {
@@ -3406,7 +3406,7 @@
     .ag-modal-overlay.open .ag-modal { transform: translateY(0); }
     .ag-modal-handle { width: 36px; height: 4px; background: var(--border-light); border-radius: 2px; margin: 0 auto 4px; }
     .ag-modal-header { display: flex; justify-content: space-between; align-items: center; }
-    .ag-modal-title { font-size: 15px; font-weight: 600; color: var(--text); }
+    .ag-modal-title { font-size: 16px; font-weight: 600; color: #fafafa; letter-spacing: -0.01px; }
     .ag-modal-close {
       width: 28px; height: 28px; border-radius: 50%; background: var(--bg-card-2);
       display: flex; align-items: center; justify-content: center;
@@ -3416,7 +3416,7 @@
       background: oklch(60% 0.24 265 / 0.08); border: 1px solid oklch(60% 0.24 265 / 0.22);
       border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 6px;
     }
-    .ag-sms-label { font-size: 10px; font-weight: 600; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.5px; }
+    .ag-sms-label { font-size: 11px; font-weight: 600; color: var(--blue-light); }
     .ag-sms-body  { font-size: 13px; color: var(--text-dim); line-height: 18px; }
     .ag-modal-actions { display: flex; flex-direction: column; gap: 8px; }
     .ag-modal-btn {
@@ -3431,7 +3431,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; padding-top: 4px; border-top: 1px solid var(--border);
     }
-    .ag-toggle-label { font-size: 12px; color: var(--text-dim); line-height: 16px; }
+    .ag-toggle-label { font-size: 11px; font-weight: 600; color: #77777e; line-height: 14px; }
     .ag-toggle {
       width: 40px; height: 22px; border-radius: 11px; background: var(--bg-card-2);
       border: 1.5px solid var(--border); position: relative; cursor: pointer; flex-shrink: 0;
@@ -5177,7 +5177,6 @@
       <div class="ag-section">
         <div class="ag-card">
           <div class="ag-card-header">
-            <div class="ag-card-icon">🎁</div>
             <div class="ag-card-title">Cover charge</div>
           </div>
 
