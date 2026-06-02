@@ -6272,22 +6272,23 @@
 
     if (!slider) return;
 
-    agCoverPerGuest = parseInt(slider.value);
-    const pct   = ((agCoverPerGuest - 450) / (1500 - 450)) * 100;
+    const coverTotal = parseInt(slider.value);
+    agCoverPerGuest = coverTotal;
+    const pct   = ((coverTotal - 450) / (1500 - 450)) * 100;
     if (fill) fill.style.width = pct + '%';
 
     const guests = typeof guestCount !== 'undefined' ? guestCount : 2;
-    const coverTotal = agCoverPerGuest * guests;
+    const perGuestAmt = Math.round(coverTotal / guests);
 
     const amountEl = document.getElementById('ag-amount');
     if (amountEl) amountEl.textContent = '₹' + coverTotal.toLocaleString('en-IN');
-    perGuest.textContent = '₹' + agCoverPerGuest.toLocaleString('en-IN') + ' per guest · ' + guests + ' guest' + (guests !== 1 ? 's' : '');
+    perGuest.textContent = '₹' + perGuestAmt.toLocaleString('en-IN') + ' per guest · ' + guests + ' guests';
 
     if (coverTotal > 0) {
       coverRow.style.display = 'flex';
       coverDiv.style.display = 'block';
       coverAmt.textContent   = '₹' + coverTotal.toLocaleString('en-IN');
-      coverSub.textContent   = '₹' + agCoverPerGuest + ' × ' + guests + ' guest' + (guests !== 1 ? 's' : '');
+      coverSub.textContent   = '₹' + perGuestAmt.toLocaleString('en-IN') + ' × ' + guests + ' guests';
     } else {
       coverRow.style.display = 'none';
       coverDiv.style.display = 'none';
